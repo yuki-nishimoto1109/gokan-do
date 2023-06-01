@@ -16,12 +16,12 @@
 全年齢対応
 
 ### 主な利用シーン
-様々なイベントでのアイスブレイク
-友人・家族のだんらんのひと時
+- 様々なイベントでのアイスブレイク
+- 友人・家族のだんらんのひと時
 
 ## 設計書
 サイトイメージ
-https://docs.google.com/presentation/d/11RxteYcU3jn840_GeExBjcXS24MUXwvaXcbmxbLlBZ0/edit?usp=sharing
+> https://docs.google.com/presentation/d/11RxteYcU3jn840_GeExBjcXS24MUXwvaXcbmxbLlBZ0/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
