@@ -1,0 +1,14 @@
+<table class="table table-bordered mx-auto">
+  <thead class="text-center table-light">
+    <tr><th>待機ユーザーリスト</th></tr>
+  </thead>
+  <tbody>
+    <% users.each do |user| %>
+      <tr>
+        <td class="text-truncate" style="max-width: 0;">
+          <%= user.name %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,18 @@
+<% if results.present? %>
+  <% results.each do |result| %>
+    <div class="bg-info rounded">
+      <div class="text-truncate w-50 ps-3 pt-1 rounded">
+        <b><%= result.winner %></b>
+      </div>
+      <h1 class="text-center py-3 content">
+        <%= result.answer %>
+      </h1>
+    </div>
+  <% end %>
+<% else %>
+    <div class="bg-secondary rounded text-white">
+      <h1 class="text-center py-3 content">
+        投票待機中...
+      </h1>
+    </div>
+<% end %>

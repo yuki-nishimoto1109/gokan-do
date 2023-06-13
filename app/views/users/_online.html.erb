@@ -1,0 +1,5 @@
+<% if player.online?(room) %>
+  <span class="text-success"><%= player.name %></span>
+<% else %>
+  <span class="text-danger"><%= player.name %></span>
+<% end %>
