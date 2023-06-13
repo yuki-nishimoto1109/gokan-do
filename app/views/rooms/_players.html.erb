@@ -1,0 +1,14 @@
+<table class="table table-bordered mx-auto w-75 mt-4">
+  <thead class="text-center table-light">
+    <tr><th>プレイヤーリスト</th></tr>
+  </thead>
+  <tbody>
+    <% players.each do |player| %>
+      <tr>
+        <td class="text-truncate" style="max-width: 0;" id=<%= "player-" + player.id.to_s %>>
+          <%= render 'users/online', room: @room, player: player %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,40 @@
+<div id="data"
+  data-room-id="<%= @room.id %>"
+  data-user-id="<%= current_user.id %>">
+</div>
+
+<div class="container">
+
+  <div class="row my-5">
+    <div class="col-7 mx-auto position-relative">
+      <div class="position-absolute top-0 start-5 translate-middle">
+        <h4 class="text-white bg-secondary py-1 px-4 rounded-pill">テーマ</h4>
+      </div>
+      <h1 class="text-center bg-light py-2"><%= @round.theme %></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-7 mx-auto">
+      <h1 class="text-center py-3">今回選ばれたのは！</h1>
+      <div id="results">
+        <%= render 'result', results: @results %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <%#= link_to "結果を表示する", %>
+  </div>
+
+  <div class="row">
+    <div class="col-5 mx-auto">
+      <%= link_to "次のラウンドへ", finish_room_path(@room), class: "btn btn-lg btn btn-outline-info w-100" %>
+    </div>
+  </div>
+
+  <div id="players">
+    <%= render 'players', players: @players %>
+  </div>
+
+</div>
