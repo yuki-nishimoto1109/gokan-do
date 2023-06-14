@@ -1,0 +1,21 @@
+<div class="container">
+
+  <div class="row my-4">
+    <h1 class="text-center">語感 do!!</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-9 mx-auto">
+      <%= form_with model: User.new do |f| %>
+        <%= f.text_field :name,
+            required: true, placeholder: "プレイヤー名を入力",
+            class: "form-control form-control-lg text-center" %>
+        <div class="text-center">
+        <%= f.submit "決定",
+            class: "btn btn-secondary btn-block btn-lg w-75 my-2" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

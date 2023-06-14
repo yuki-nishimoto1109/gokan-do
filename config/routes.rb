@@ -1,3 +1,19 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root to: 'homes#top'
+
+  resources :users, only: [:create]
+  resources :rooms, only: [:index, :show] do
+    member do
+      get "start"
+      get "answer"
+      get "vote"
+      get "result"
+      get "check"
+      get "finish"
+    end
+    resources :votes,  only: [:create]
+  end
+  resources :answers, only: [:update]
+  resources :rounds,  only: [:create]
 end

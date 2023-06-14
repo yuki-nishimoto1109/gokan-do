@@ -1,0 +1,75 @@
+<div id="data"
+  data-room-id="<%= @room.id %>"
+  data-user-id="<%= current_user.id %>">
+</div>
+
+<div class="container position-relative">
+
+  <div class="row my-5">
+    <div class="col-7 mx-auto position-relative">
+      <div class="position-absolute top-0 start-5 translate-middle">
+        <h4 class="text-white bg-secondary py-1 px-4 rounded-pill">テーマ</h4>
+      </div>
+      <h1 class="text-center bg-light py-2"><%= @round.theme %></h1>
+    </div>
+  </div>
+
+  <div class="row my-4">
+    <div class="col-8 mx-auto">
+      <%= form_with model: @answer do |f| %>
+        <%= f.text_field :content, readonly: true,
+            class: "form-control form-control-lg text-center" %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <div class="text-center">
+        <%= f.submit "回答", id: "send-btn",
+            class: "btn btn-secondary btn-block btn-lg my-2" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row row-cols-sm-4 row-cols-md-5">
+    <% @answer.hand.split("").each do |chr| %>
+      <div class="col">
+        <div class="card text-center bg-light my-2" data-chr="<%= chr %>">
+          <div class="card-body">
+            <h5><%= chr %></h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="players">
+    <%= render 'players', players: @players %>
+  </div>
+
+</div>
+
+<script>
+  $(".card").click(function(){
+    const form = $("#answer_content");
+    const formtxt = form.val();
+    if($(this).hasClass('bg-light')){
+      form.val(formtxt + $(this).data('chr'));
+      form.removeClass('is-invalid')
+      $(this).removeClass('bg-light');
+      $(this).addClass('bg-secondary');
+    } else {
+      form.val(formtxt.replace($(this).data('chr'),''))
+      $(this).removeClass('bg-secondary');
+      $(this).addClass('bg-light');
+    };
+  });
+
+  $("#send-btn").click(function(){
+    const form = $("#answer_content");
+    if(form.val()==""){
+      form.addClass('is-invalid')
+      return false;
+    }
+  });
+</script>
+
+
+

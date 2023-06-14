@@ -1,0 +1,13 @@
+<% flash.each do |message_type, message| %>
+  <div class="col-5 mx-auto">
+    <div class="alert alert-<%= message_type %> text-center">
+      <%= message %>
+    </div>
+  </div>
+<% end %>
+
+<% if flash.present? %>
+  <script>
+    $('.alert').fadeOut(2000)
+  </script>
+<% end %>

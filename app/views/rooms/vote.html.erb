@@ -1,0 +1,82 @@
+<div id="data"
+  data-room-id="<%= @room.id %>"
+  data-user-id="<%= current_user.id %>">
+</div>
+
+<div class="container">
+
+  <div class="row my-5">
+    <div class="col-7 mx-auto position-relative">
+      <div class="position-absolute top-0 start-5 translate-middle">
+        <h4 class="text-white bg-secondary py-1 px-4 rounded-pill">テーマ</h4>
+      </div>
+      <h1 class="text-center bg-light py-2"><%= @round.theme %></h1>
+    </div>
+  </div>
+
+  <div id="answers" class="row row-cols-1 row-cols-xl-2 row-cols-xxl-3 d-flex content-justify-center">
+    <% @players.each do |player| %>
+      <div class="col my-2">
+        <div class="bg-light rounded answer">
+          <div class="text-truncate w-50 ps-3 pt-1 rounded">
+            <b><%= player.name %></b>
+          </div>
+          <h2 class="text-center py-3 content">
+            <% if @round.answers.exists?(user_id: player.id) %>
+              <div class="answer-id" data-id=<%= player.answers.find_by(round_id: @round.id).id %>></div>
+              <span id=<%= "answer-" + player.id.to_s %>>
+                <%= player.answers.find_by(round_id: @round.id).content||"未回答" %>
+              </span>
+            <% else %>
+              <div class="answer-id" data-id=0 ></div>
+              <%= "未回答" %>
+            <% end %>
+          </h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row py-4 text-center">
+    <div id="vote">
+      <%= form_with model:[@room, @vote] do |f| %>
+        <%= f.hidden_field :round_id, value: @round.id %>
+        <%= f.hidden_field :answer_id, value: 0 %>
+        <%= f.submit "投票", class: "btn btn-secondary btn-lg w-75", id: "vote-btn" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="players">
+    <%= render 'players', players: @players %>
+  </div>
+
+</div>
+
+<script>
+  $('.answer').click(function(){
+
+    const txt = $(this).children('.content').text();
+    const selected = $(this).hasClass('bg-secondary');
+
+    // 未回答は処理スキップ
+    if(txt.trim()=="未回答"){return};
+
+    // 他選択の解除
+    $("#answers").find(".answer").each(function(){
+      $(this).removeClass('bg-secondary').addClass('bg-light');
+    });
+
+    // 選択回答変更
+    if(selected){
+      $("#vote_answer_id").val(0);
+    } else {
+      $("#vote_answer_id").val($(this).find(".answer-id").data("id"));
+      $(this).removeClass('bg-light').addClass('bg-secondary');
+    };
+  });
+
+  $('#vote-btn').click(function(){
+    if($("#vote_answer_id").val()==0){return false};
+  });
+</script>
