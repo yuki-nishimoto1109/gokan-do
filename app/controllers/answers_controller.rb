@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
   def update
     answer = Answer.find(params[:id])
     room = Room.find(params[:answer][:room_id])
-    if answer.update(answer_params)
+    if answer.update(content: params[:answer][:content])
       RoomChannel.broadcast_to(room, {answer: answer.content, player_id: answer.user.id})
       redirect_to vote_room_path(room)
     else
@@ -13,6 +13,6 @@ class AnswersController < ApplicationController
 
 private
   def answer_params
-    params.require(:answer).permit(:content)
+    params.require(:answer).permit(:content, :room_id)
   end
 end
