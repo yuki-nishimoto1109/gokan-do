@@ -34,16 +34,16 @@ print "---------- make: Theme ".ljust(30) + "----------"
   )
 puts " Finish"
 
-print "---------- make: User ".ljust(30) + "----------"
-  user1 = User.create!(name: "alpha")
-  user2 = User.create!(name: "beta")
-  user3 = User.create!(name: "gamma")
-puts " Finish"
+# print "---------- make: User ".ljust(30) + "----------"
+#   user1 = User.create!(name: "alpha")
+#   user2 = User.create!(name: "beta")
+#   user3 = User.create!(name: "gamma")
+# puts " Finish"
 
-print "---------- make: UserRoom ".ljust(30) + "----------"
-  UserRoom.create!({room_id: room1.id, user_id: user1.id})
-  UserRoom.create!({room_id: room1.id, user_id: user2.id})
-  UserRoom.create!({room_id: room1.id, user_id: user3.id})
-puts " Finish"
+# print "---------- make: UserRoom ".ljust(30) + "----------"
+#   UserRoom.create!({room_id: room1.id, user_id: user1.id})
+#   UserRoom.create!({room_id: room1.id, user_id: user2.id})
+#   UserRoom.create!({room_id: room1.id, user_id: user3.id})
+# puts " Finish"
 
 puts " <<< FINISH >>> "
