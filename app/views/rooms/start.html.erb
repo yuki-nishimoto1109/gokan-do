@@ -4,14 +4,20 @@
 </div>
 
 <div class="container">
+  <div class="row mt-4">
+    <div class="col-2 ms-auto">
+      <%= link_to "TOPへ戻る", rooms_path, class: "btn btn-outline-dark btn-sm"%>
+    </div>
+  </div>
+
   <div class="row text-center my-4">
     <h1><%= @room.name %></h1>
   </div>
 
   <div class="row my-4">
     <div class="col-10 mx-auto">
-      <%= link_to "GAME START", answer_room_path(@room),
-          class: "btn btn-secondary btn-lg w-100" %>
+      <%= link_to "GAME START", room_path(@room), method: :post,
+          class: "btn btn-secondary btn-lg w-100", id: "start-button", style: "display: none;" %>
     </div>
     <div class="col-9 mx-auto">
       <div id="members" class="my-4">
@@ -21,5 +27,3 @@
   </div>
 
 </div>
-
-

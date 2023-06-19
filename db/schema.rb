@@ -13,24 +13,23 @@
 ActiveRecord::Schema.define(version: 2023_06_13_111551) do
 
   create_table "answers", force: :cascade do |t|
-    t.integer "round_id"
-    t.integer "user_id"
+    t.integer "round_id", null: false
+    t.integer "user_id", null: false
     t.string "content"
     t.string "hand"
-    t.integer "vote_to"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "join_rounds", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "round_id"
+    t.integer "user_id", null: false
+    t.integer "round_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "results", force: :cascade do |t|
-    t.integer "round_id"
+    t.integer "round_id", null: false
     t.string "winner"
     t.string "answer"
     t.datetime "created_at", precision: 6, null: false
@@ -45,7 +44,7 @@ ActiveRecord::Schema.define(version: 2023_06_13_111551) do
   end
 
   create_table "rounds", force: :cascade do |t|
-    t.integer "room_id"
+    t.integer "room_id", null: false
     t.integer "condition"
     t.string "theme"
     t.boolean "is_finished", default: false
@@ -60,8 +59,8 @@ ActiveRecord::Schema.define(version: 2023_06_13_111551) do
   end
 
   create_table "user_rooms", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -73,9 +72,9 @@ ActiveRecord::Schema.define(version: 2023_06_13_111551) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "round_id"
-    t.integer "user_id"
-    t.integer "answer_id"
+    t.integer "round_id", null: false
+    t.integer "user_id", null: false
+    t.integer "answer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

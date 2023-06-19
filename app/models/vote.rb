@@ -22,4 +22,5 @@ private
     result_template = ApplicationController.renderer.render partial: 'rooms/result', locals: { results: round.results }
     RoomChannel.broadcast_to(round.room, {result: result_template})
   end
+
 end

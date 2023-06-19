@@ -1,7 +1,7 @@
 class CreateRounds < ActiveRecord::Migration[6.1]
   def change
     create_table :rounds do |t|
-      t.integer :room_id
+      t.integer :room_id,     null: false
       t.integer :condition
       t.string  :theme
       t.boolean :is_finished, default: false
