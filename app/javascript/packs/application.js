@@ -13,6 +13,7 @@ import "channels"
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
+import "animate.css";
 
 Rails.start()
 Turbolinks.start()

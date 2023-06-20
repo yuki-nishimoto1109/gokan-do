@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
   resources :rooms, only: [:index, :show] do
     member do
+      post "new"
       get "start"
       get "answer"
       get "vote"
