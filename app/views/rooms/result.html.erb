@@ -24,8 +24,10 @@
   </div>
 
   <div class="row">
-    <div class="col-5 mx-auto">
-      <%= link_to "TOPへ戻る", finish_room_path(@room), class: "btn btn-lg btn btn-outline-info w-100" %>
+    <div class="col-5 mx-auto pt-3">
+      <% if @round.join_rounds.first.user_id == current_user.id %>
+        <%= link_to "TOPへ戻る", finish_room_path(@room), class: "btn btn-outline-dark btn-lg w-100" %>
+      <% end %>
     </div>
   </div>
 

@@ -9,6 +9,8 @@ class RoomsController < ApplicationController
   end
 
   def start
+    @round = @room.rounds.find_by(is_finished: false)
+    return redirect_to answer_room_path(@room) if @round.present?
   end
 
   def new
@@ -56,9 +58,12 @@ class RoomsController < ApplicationController
   end
 
   def finish
-    round = @room.rounds.find_by(is_finished: false)
-    round.update(is_finished: true) if round.present?
-    redirect_to rooms_path
+    round = @room.rounds.where(is_finished: false)
+    if round.present?
+      round.update_all(is_finished: true)
+      @room.user_rooms.destroy_all
+    end
+    RoomChannel.broadcast_to(@room, {start: "../../rooms"})
   end
 
 private
