@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <div class="row my-4">
+  <div class="row mt-4">
     <div class="col-8 mx-auto">
       <%= form_with model: @answer do |f| %>
         <%= f.text_field :content, readonly: true,
@@ -28,9 +28,15 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="w-100 text-center">
+      文字を組み合わせてテーマに合う語感の言葉を回答！
+    </div>
+  </div>
+
   <div class="row row-cols-sm-4 row-cols-md-5">
     <% @answer.hand.split("").each do |chr| %>
-      <div class="col">
+      <div class="col animate__animated animate__zoomIn">
         <div class="card text-center bg-light my-2" data-chr="<%= chr %>">
           <div class="card-body">
             <h5><%= chr %></h5>

@@ -35,7 +35,6 @@ private
     member_template = ApplicationController.renderer.render partial: 'rooms/members', locals: { users: room.users }
     player_template = ApplicationController.renderer.render partial: 'users/online', locals: { player: User.find(user_id), room: room}
     master = room.user_rooms.first
-    p master
     master_id = master ? master.user_id : 0
     RoomChannel.broadcast_to(room, {member: member_template, master: master_id, player_id: user_id, player: player_template})
   end

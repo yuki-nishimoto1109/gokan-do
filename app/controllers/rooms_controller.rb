@@ -64,6 +64,7 @@ class RoomsController < ApplicationController
       @room.user_rooms.destroy_all
     end
     RoomChannel.broadcast_to(@room, {start: "../../rooms"})
+    return redirect_to rooms_path
   end
 
 private
