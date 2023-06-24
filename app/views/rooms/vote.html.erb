@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <div id="answers" class="row row-cols-1 row-cols-xl-2 row-cols-xxl-3 d-flex content-justify-center">
+  <div id="answers" class="row row-cols-1 row-cols-xl-2 row-cols-xxl-3 d-flex justify-content-center">
     <% @players.shuffle.each do |player| %>
       <% answer = @answers.select{|answer| answer.user_id == player.id}[0] %>
       <div class="col my-2">
