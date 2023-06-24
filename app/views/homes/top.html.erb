@@ -1,11 +1,11 @@
 <div class="container">
 
-  <div class="row my-4">
-    <h1 class="text-center">語感 do!!</h1>
+  <div class="row mt-4">
+    <%= image_tag "logo.png", class: "mx-auto", style: "max-width: 580px;" %>
   </div>
 
   <div class="row">
-    <div class="col-9 mx-auto">
+    <div class="col-9 col-lg-6 mx-auto">
       <%= form_with model: User.new do |f| %>
         <%= f.text_field :name,
             required: true, placeholder: "プレイヤー名を入力",
