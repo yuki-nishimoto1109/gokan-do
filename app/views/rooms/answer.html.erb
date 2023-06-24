@@ -34,9 +34,9 @@
     </div>
   </div>
 
-  <div class="row row-cols-sm-4 row-cols-md-5">
+  <div class="row row-cols-sm-4 row-cols-md-5 d-flex justify-content-center">
     <% @answer.hand.split("").each do |chr| %>
-      <div class="col animate__animated animate__zoomIn">
+      <div class="col-3 animate__animated animate__zoomIn">
         <div class="card text-center bg-light my-2" data-chr="<%= chr %>">
           <div class="card-body">
             <h5><%= chr %></h5>
