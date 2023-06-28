@@ -7,10 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 print "---------- make: Room ".ljust(30) + "----------"
-  room1 = Room.create!(name: "ROOM1")
-  room2 = Room.create!(name: "ROOM2")
-  room3 = Room.create!(name: "ROOM3")
-  room4 = Room.create!(name: "ROOM4")
+  20.times do |n|
+    Room.create!(name: "ROOM#{n+1}")
+  end
 puts " Finish"
 
 print "---------- make: Theme ".ljust(30) + "----------"
@@ -33,17 +32,5 @@ print "---------- make: Theme ".ljust(30) + "----------"
     ]
   )
 puts " Finish"
-
-# print "---------- make: User ".ljust(30) + "----------"
-#   user1 = User.create!(name: "alpha")
-#   user2 = User.create!(name: "beta")
-#   user3 = User.create!(name: "gamma")
-# puts " Finish"
-
-# print "---------- make: UserRoom ".ljust(30) + "----------"
-#   UserRoom.create!({room_id: room1.id, user_id: user1.id})
-#   UserRoom.create!({room_id: room1.id, user_id: user2.id})
-#   UserRoom.create!({room_id: room1.id, user_id: user3.id})
-# puts " Finish"
 
 puts " <<< FINISH >>> "
