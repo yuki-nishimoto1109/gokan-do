@@ -1,3 +1,5 @@
+**インスタンス停止済み/利用不可**
+
 # 語感 do!!
 ![gokan-do-logo](https://github.com/yuki-nishimoto1109/gokan-do/assets/126940102/9d7c6e1a-94b0-4163-ac20-9f6c441c39c7)
 
